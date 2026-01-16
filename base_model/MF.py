@@ -36,7 +36,7 @@ class MF(BaseColdStartTrainer):
                 model.eval()
                 self.user_emb, self.item_emb = self.model()
                 if epoch % 5 == 0:
-                    self.fast_evaluation(epoch, valid_type='warm')
+                    self.fast_evaluation(epoch, valid_type='cold')
 
         self.timer(start=False)
         model.eval()

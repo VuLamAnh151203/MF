@@ -78,8 +78,8 @@ class BaseColdStartTrainer(object):
         for i, user in enumerate(valid_set):
             candidates = self.predict(user)
             rated_list, li = self.data.user_rated(user)
-            if len(rated_list) != 0:
-                candidates[self.data.get_item_id_list(rated_list)] = -10e8
+            # if len(rated_list) != 0:
+            #     candidates[self.data.get_item_id_list(rated_list)] = -10e8
             if valid_type == 'warm' and self.args.cold_object == 'item':
                 candidates[self.data.mapped_cold_item_idx] = -10e8
             if valid_type == 'cold' and self.args.cold_object == 'item':

@@ -161,8 +161,8 @@ class BaseColdStartTrainer(object):
             raise ValueError('Invalid evaluation type!')
         print(f'Evaluating the model under the {valid_type} setting...')
         rec_list = self.valid(valid_type)
-        print(type(rec_list))
-        print(type(valid_set))
+        print(rec_list.keys())
+        print(valid_set.keys())
         measure, _ = ranking_evaluation(valid_set, rec_list, [self.max_N])
         if len(self.bestPerformance) > 0:
             count = 0
